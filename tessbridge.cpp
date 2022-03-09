@@ -39,10 +39,10 @@ void ClearPersistentCache(TessBaseAPI a) {
     api->ClearPersistentCache();
 }
 
-int Init(TessBaseAPI a, char* tessdataprefix, char* languages) {
-    tesseract::TessBaseAPI* api = (tesseract::TessBaseAPI*)a;
-    return api->Init(tessdataprefix, languages);
-}
+//int Init(TessBaseAPI a, char* tessdataprefix, char* languages) {
+//    tesseract::TessBaseAPI* api = (tesseract::TessBaseAPI*)a;
+//    return api->Init(tessdataprefix, languages);
+//}
 
 int Init(TessBaseAPI a, char* tessdataprefix, char* languages, char* configfilepath, char* errbuf) {
     tesseract::TessBaseAPI* api = (tesseract::TessBaseAPI*)a;
@@ -60,8 +60,8 @@ int Init(TessBaseAPI a, char* tessdataprefix, char* languages, char* configfilep
     pars_vec.push_back("load_freq_dawg");
 
     GenericVector<STRING> pars_values;
-    pars_values.push_back("F");
-    pars_values.push_back("F");
+    pars_values.push_back("0");
+    pars_values.push_back("0");
 
     int ret;
     if (configfilepath != NULL) {
