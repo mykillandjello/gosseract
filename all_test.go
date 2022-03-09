@@ -199,6 +199,7 @@ func TestClient_SetBlacklist(t *testing.T) {
 func TestClient_SetLanguage(t *testing.T) {
 	client := NewClient()
 	defer client.Close()
+
 	err := client.SetLanguage("undefined-language")
 	Expect(t, err).ToBe(nil)
 	err = client.SetLanguage()
