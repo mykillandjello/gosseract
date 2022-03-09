@@ -1,9 +1,13 @@
 #if __FreeBSD__ >= 10
 #include "/usr/local/include/leptonica/allheaders.h"
 #include "/usr/local/include/tesseract/baseapi.h"
+#include "/usr/local/include/tesseract/genericvector.h"
+#include "/usr/local/include/tesseract/strngs.h"
 #else
 #include <leptonica/allheaders.h>
 #include <tesseract/baseapi.h>
+#include <tesseract/genericvector.h>
+#include <tesseract/strngs.h>
 #endif
 
 #include <stdio.h>
@@ -51,11 +55,19 @@ int Init(TessBaseAPI a, char* tessdataprefix, char* languages, char* configfilep
     setbuf(stderr, errbuf);
     // }}}
 
+    GenericVector<STRING> pars_vec;
+    pars_vec.push_back("load_system_dawg");
+    pars_vec.push_back("load_freq_dawg");
+
+    GenericVector<STRING> pars_values;
+    pars_values.push_back("F");
+    pars_values.push_back("F");
+
     int ret;
     if (configfilepath != NULL) {
         char* configs[] = {configfilepath};
         int configs_size = 1;
-        ret = api->Init(tessdataprefix, languages, tesseract::OEM_DEFAULT, configs, configs_size, NULL, NULL, false);
+        ret = api->Init(tessdataprefix, languages, tesseract::OEM_DEFAULT, configs, configs_size, &pars_vec, &pars_values, false);
     } else {
         ret = api->Init(tessdataprefix, languages);
     }

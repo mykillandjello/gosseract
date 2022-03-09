@@ -191,10 +191,6 @@ func TestClient_SetBlacklist(t *testing.T) {
 	client.Languages = []string{"eng"}
 	err = client.SetBlacklist("l")
 	Expect(t, err).ToBe(nil)
-	err = client.SetSystemDawg("0")
-	Expect(t, err).ToBe(nil)
-	err = client.SetFreqDawg("0")
-	Expect(t, err).ToBe(nil)
 	text, err := client.Text()
 	Expect(t, err).ToBe(nil)
 	Expect(t, text).Match("He(110|tto|o), Wor(I|t)?d!")

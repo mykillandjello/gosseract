@@ -75,7 +75,4 @@ const (
 	// There is a known issue in 4.00 with LSTM
 	// https://github.com/tesseract-ocr/tesseract/issues/751
 	TESSEDIT_CHAR_BLACKLIST SettableVariable = "tessedit_char_blacklist"
-	//
-	LOAD_SYSTEM_DAWG SettableVariable = "load_system_dawg"
-	LOAD_FREQ_DAWG SettableVariable = "load_freq_dawg"
 )

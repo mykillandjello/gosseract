@@ -192,26 +192,27 @@ func (client *Client) SetBlacklist(blacklist string) error {
 
 	return err
 }
-// SetSystemDawg sets the system word dawg.
-// See official documentation here https://zdenop.github.io/tesseract-doc/classtesseract_1_1_dict.html#aa94c8519d79413969cbf94c9a9efcbd1
-func(client *Client) SetSystemDawg(loadSystemDawg string) error {
-	err := client.SetVariable(LOAD_SYSTEM_DAWG, loadSystemDawg)
 
-	client.setVariablesToInitializedAPIIfNeeded()
-
-	return err
-}
-
-// SetFreqDawg sets the frequency dawg.
-// See official documentation here https://zdenop.github.io/tesseract-doc/classtesseract_1_1_dict.html#a70cf001f370ad12c08ba7e1796d27cae
-func(client *Client) SetFreqDawg(loadFreqDawg string) error {
-	err := client.SetVariable(LOAD_FREQ_DAWG, loadFreqDawg)
-
-	client.setVariablesToInitializedAPIIfNeeded()
-
-	return err
-
-}
+//// SetSystemDawg sets the system word dawg.
+//// See official documentation here https://zdenop.github.io/tesseract-doc/classtesseract_1_1_dict.html#aa94c8519d79413969cbf94c9a9efcbd1
+//func(client *Client) SetSystemDawg(loadSystemDawg string) error {
+//	err := client.SetVariable(LOAD_SYSTEM_DAWG, loadSystemDawg)
+//
+//	client.setVariablesToInitializedAPIIfNeeded()
+//
+//	return err
+//}
+//
+//// SetFreqDawg sets the frequency dawg.
+//// See official documentation here https://zdenop.github.io/tesseract-doc/classtesseract_1_1_dict.html#a70cf001f370ad12c08ba7e1796d27cae
+//func(client *Client) SetFreqDawg(loadFreqDawg string) error {
+//	err := client.SetVariable(LOAD_FREQ_DAWG, loadFreqDawg)
+//
+//	client.setVariablesToInitializedAPIIfNeeded()
+//
+//	return err
+//
+//}
 
 // SetVariable sets parameters, representing tesseract::TessBaseAPI->SetVariable.
 // See official documentation here https://zdenop.github.io/tesseract-doc/classtesseract_1_1_tess_base_a_p_i.html#a2e09259c558c6d8e0f7e523cbaf5adf5
@@ -316,7 +317,7 @@ func (client *Client) flagForInit() {
 	client.shouldInit = true
 }
 
-// This method sets all the sspecified variables to TessBaseAPI structure.
+// This method sets all the specified variables to TessBaseAPI structure.
 // Because `api->SetVariable` must be called after `api->Init()`,
 // gosseract.Client.SetVariable cannot call `api->SetVariable` directly.
 // See https://zdenop.github.io/tesseract-doc/classtesseract_1_1_tess_base_a_p_i.html#a2e09259c558c6d8e0f7e523cbaf5adf5
